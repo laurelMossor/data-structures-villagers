@@ -37,7 +37,6 @@ def get_villagers_by_species(filename, search_string="All"):
     """
 
     villagers = []
-    
     for line in filename:
         line = line.split("|")
         if line[1] == search_string:
@@ -49,7 +48,7 @@ def get_villagers_by_species(filename, search_string="All"):
 
     return sorted(villagers)
 
-print(get_villagers_by_species(VILLAGERS, "Bear"))
+# print(get_villagers_by_species(VILLAGERS, "Bear"))
 
 
 def all_names_by_hobby(filename):
@@ -61,10 +60,41 @@ def all_names_by_hobby(filename):
     Return:
         - list[list[str]]: a list of lists containing names
     """
+    # name [0]
+    # hobby [3]
+    
+    fitness = []
+    nature = []
+    education = []
+    music = []
+    fashion = []
+    play = []
 
+    # all_lists = [fitness,nature,education,music,fashion,play]
+
+    
     # TODO: replace this with your code
 
-    return []
+    for line in filename:
+        line = line.split("|")
+        if line[3] == "Fitness":
+            fitness.append(line[0])
+        elif line[3] == "Nature":
+            nature.append(line[0])
+        elif line[3] == "Education":
+            education.append(line[0])
+        elif line[3] == "Music":
+            music.append(line[0])
+        elif line[3] == "Fashion":
+            fashion.append(line[0])
+        elif line[3] == "Play":
+            play.append(line[0])
+
+        
+    return [sorted(fitness),sorted(nature),sorted(education),
+    sorted(music),sorted(fashion),sorted(play)]
+
+print(all_names_by_hobby(VILLAGERS))
 
 
 def all_data(filename):
