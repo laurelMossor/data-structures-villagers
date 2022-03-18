@@ -20,12 +20,9 @@ def all_species(filename):
 
     species = set(animals)
     
-
-    # TODO: replace this with your code
-
     return species
 
-print(all_species(VILLAGERS))
+# print(all_species(VILLAGERS))
 
 
 def get_villagers_by_species(filename, search_string="All"):
@@ -40,10 +37,19 @@ def get_villagers_by_species(filename, search_string="All"):
     """
 
     villagers = []
+    
+    for line in filename:
+        line = line.split("|")
+        if line[1] == search_string:
+            villagers.append(line[0])
+        if search_string == "All":
+            villagers.append(line[0])    
 
     # TODO: replace this with your code
 
     return sorted(villagers)
+
+print(get_villagers_by_species(VILLAGERS, "Bear"))
 
 
 def all_names_by_hobby(filename):
