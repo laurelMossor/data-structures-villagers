@@ -94,7 +94,7 @@ def all_names_by_hobby(filename):
     return [sorted(fitness),sorted(nature),sorted(education),
     sorted(music),sorted(fashion),sorted(play)]
 
-print(all_names_by_hobby(VILLAGERS))
+# print(all_names_by_hobby(VILLAGERS))
 
 
 def all_data(filename):
@@ -112,10 +112,15 @@ def all_data(filename):
 
     all_data = []
 
+    for line in filename:
+        line = line.split("|")
+        all_data.append(tuple(line))
+
     # TODO: replace this with your code
 
     return all_data
 
+print(all_data(VILLAGERS))
 
 def find_motto(filename, villager_name):
     """Return the villager's motto.
